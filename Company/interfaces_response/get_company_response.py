@@ -22,6 +22,6 @@ class GetCompanyResponse(BaseModelResponse):
     creator_id: UUID
     updater_id: UUID
     time_created: datetime.datetime
-    time_updated: datetime.datetime | None
+    time_updated: datetime.datetime
     start_time: datetime.time
     over_time: datetime.time
