@@ -1,2 +1,0 @@
-from Company.interfaces_request.create_company_request import CreateCompanyRequest
-from Company.interfaces_request.update_company_request import UpdateCompanyRequest

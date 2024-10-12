@@ -5,7 +5,7 @@ from uuid import UUID
 from sqlalchemy import select, update, and_
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from Company.db.model_db import CompanyDB
+from Company.models import CompanyDB
 
 
 class CompanyDal:
@@ -13,7 +13,7 @@ class CompanyDal:
         self.db_session = db_session
 
     async def create_company(self, company_name: str, address: str, phone: str, email: str,
-                             order_number: int, main_screen_id: int, group_id: int, company_image: str,
+                             order_number: int, main_screen_id: int, company_group_id: int, company_image: str,
                              company_icon: str, age_limit: bool, work_state: bool, start_time: time,
                              over_time: time
                              ) -> CompanyDB:
@@ -24,7 +24,7 @@ class CompanyDal:
             email=email,
             order_number=order_number,
             main_screen_id=main_screen_id,
-            group_id=group_id,
+            company_group_id=company_group_id,
             company_image=company_image,
             company_icon=company_icon,
             age_limit=age_limit,

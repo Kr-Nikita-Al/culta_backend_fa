@@ -1,11 +1,11 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from Company.db.model_dal import CompanyDal
-from Company.interfaces_request.create_company_request import CreateCompanyRequest
-from Company.interfaces_response.create_company_response import CreateCompanyResponse
+from Company.models import CompanyDal
+from Company.interface_request import CreateCompanyRequest
+from Company.interface_response import CreateCompanyResponse
 
 
-async def _create_company(company_body: CreateCompanyRequest, session: AsyncSession) -> CreateCompanyResponse:
+async def __create_company(company_body: CreateCompanyRequest, session: AsyncSession) -> CreateCompanyResponse:
     async with session.begin():
         company_dal = CompanyDal(session)
         company_db = await company_dal.create_company(
@@ -15,7 +15,7 @@ async def _create_company(company_body: CreateCompanyRequest, session: AsyncSess
             email=company_body.email,
             order_number=company_body.order_number,
             main_screen_id=company_body.main_screen_id,
-            group_id=company_body.group_id,
+            company_group_id=company_body.company_group_id,
             company_image=company_body.company_image,
             company_icon=company_body.company_icon,
             age_limit=company_body.age_limit,
@@ -32,7 +32,7 @@ async def _create_company(company_body: CreateCompanyRequest, session: AsyncSess
             is_active=company_db.is_active,
             order_number=company_db.order_number,
             main_screen_id=company_db.main_screen_id,
-            group_id=company_db.group_id,
+            company_group_id=company_db.company_group_id,
             company_image=company_db.company_image,
             company_icon=company_db.company_icon,
             age_limit=company_db.age_limit,

@@ -1,9 +1,9 @@
 from datetime import time
 
 from fastapi import HTTPException
-from pydantic import BaseModel, validator, constr, EmailStr, conint, StrictBool, condate
+from pydantic import BaseModel, validator, constr, EmailStr, conint, StrictBool
 
-from regex import LETTER_MATCH_PATTERN_PHONE
+from utils.regex import LETTER_MATCH_PATTERN_PHONE
 
 
 class CreateCompanyRequest(BaseModel):
@@ -13,7 +13,7 @@ class CreateCompanyRequest(BaseModel):
     email: EmailStr
     order_number: conint()
     main_screen_id: conint()
-    group_id: conint()
+    company_group_id: conint()
     company_image: constr()
     company_icon: constr()
     age_limit: StrictBool

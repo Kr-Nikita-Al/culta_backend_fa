@@ -1,11 +1,12 @@
-from uuid import UUID
 import datetime
+from uuid import UUID
+
 from pydantic import EmailStr
 
-from base_model_response import BaseModelResponse
+from utils.base_model_response import BaseModelResponse
 
 
-class GetCompanyResponse(BaseModelResponse):
+class CreateCompanyResponse(BaseModelResponse):
     company_id: UUID
     company_name: str
     address: str
@@ -14,7 +15,7 @@ class GetCompanyResponse(BaseModelResponse):
     is_active: bool
     order_number: int
     main_screen_id: int
-    group_id: int
+    company_group_id: int
     company_image: str
     company_icon: str
     age_limit: bool

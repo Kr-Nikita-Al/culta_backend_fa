@@ -1,11 +1,10 @@
-import re
 from datetime import time
 from typing import Optional
 
 from fastapi import HTTPException
-from pydantic import BaseModel, validator, constr, EmailStr, conint, StrictBool, condate
+from pydantic import BaseModel, validator, constr, EmailStr, conint, StrictBool
 
-from regex import LETTER_MATCH_PATTERN_PHONE
+from utils.regex import LETTER_MATCH_PATTERN_PHONE
 
 
 class UpdateCompanyRequest(BaseModel):
@@ -15,7 +14,7 @@ class UpdateCompanyRequest(BaseModel):
     email: Optional[EmailStr]
     order_number: Optional[conint()]
     main_screen_id: Optional[conint()]
-    group_id: Optional[conint()]
+    company_group_id: Optional[conint()]
     company_image: Optional[constr()]
     company_icon: Optional[constr()]
     age_limit: Optional[StrictBool]
