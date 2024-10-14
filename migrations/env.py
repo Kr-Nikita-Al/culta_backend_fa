@@ -17,6 +17,10 @@ if config.config_file_name is not None:
 # add your model's MetaData object here
 # for 'autogenerate' support
 from db.base_model import Base
+from Company.models.model_db import CompanyDB
+from User.db.model import UserDB
+from navigations.Screen.models.model_db import ScreenDB
+from ProductCard.models.model_db import ProductCardDB
 
 target_metadata = Base.metadata
 
