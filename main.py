@@ -2,8 +2,9 @@ import uvicorn
 from fastapi import FastAPI, APIRouter
 
 import settings
-from Company.api_handlers import company_router
-from navigations.Screen.api_handlers import screen_router
+from Company import company_router
+from ProductCard import product_card_router
+from navigations.Screen import screen_router
 from utils.api.ping import service_router
 
 #############################
@@ -20,6 +21,7 @@ main_api_router = APIRouter()
 main_api_router.include_router(company_router, prefix="/company", tags=["company"])
 main_api_router.include_router(service_router, tags=["ping"])
 main_api_router.include_router(screen_router, prefix="/screen", tags=['screen'])
+main_api_router.include_router(product_card_router, prefix="/product_card", tags=['product_card'])
 
 # Добавляем роутер в приложение
 app.include_router(main_api_router)

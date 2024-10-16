@@ -57,8 +57,8 @@ class ProductCardDB(Base):
     company = relationship("Company", backref="product_cards")
 
     company_group_id = Column(Integer, default=-1)
-    product_image_id = Column(Integer, default=-1)
-    icon_image_id = Column(Integer, default=-1)
+    product_image_id = Column(Integer, default=EMPTY_UUID)
+    icon_image_id = Column(Integer, default=EMPTY_UUID)
 
     # Technical fields
     creator_id = Column(UUID(as_uuid=True), default=EMPTY_UUID)

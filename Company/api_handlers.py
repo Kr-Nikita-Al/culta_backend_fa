@@ -1,17 +1,16 @@
 from uuid import UUID
-
+from fastapi import APIRouter
 from fastapi import Depends, HTTPException
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from Company.actions import __create_company, __delete_company, __get_all_companies, __get_company_by_id, \
-    __update_company_by_id
+                            __update_company_by_id
 from Company.interface_request import CreateCompanyRequest, UpdateCompanyRequest
 from Company.interface_response import CreateCompanyResponse, DeleteCompanyResponse, GetAllCompanyResponse, \
-    GetCompanyResponse, UpdateCompanyResponse
+                                       GetCompanyResponse, UpdateCompanyResponse
 from db.session import get_db
 
-from fastapi import APIRouter
 
 company_router = APIRouter()
 
